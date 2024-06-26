@@ -1,0 +1,205 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  .main-img{
+    width: 100%;
+    height: 100vh;
+    background-image: url(background.png);
+    background-size: cover; /*fill the enite area with Img even if img is not proper*/
+    position: relative;  /* can move the photo in it's OG position*/
+    overflow: hidden;    /* if the img is out of container or div it's will hide the extra part, it can look bad*/
+  }
+  .logo{
+    width: 200px;
+  }
+  .navbar{
+    width: 80%;
+    height: 20%;
+    /* border: 2px solid red; */
+    margin: auto;  /* if i ever forgot what this 'auto' means?*/
+    /* https://dev.to/ritikaagrawal08/all-about-margin-auto-in-css-centering-and-more-2b2g */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  button{
+    font-size: 20px;
+    color: #fbfcfd;
+    background: transparent;
+    padding: 10px 25px;
+    border-radius: 29px;
+    border: 1px solid #fff;
+    outline: none;
+    cursor: pointer;
+  }
+  button:hover {
+    border: 2px solid #03fcd3;
+    color: #03fcd3;
+    background-color: white;
+  }
+  .content{
+    color: #fbfcfd;
+    /* border: 2px solid red; */
+    position: absolute; /* Absolute --> beside the Ancestor position(if any) which is relative*/
+    top: 30%;
+    left: 10%;
+    transform: translateY(50%);
+    z-index: 2;
+  }
+  h1{
+    font-size: 73px;
+    margin: 15px 0 30px 0;
+    line-height: 100px;  /* H1 ke aas pass 100px ka gap */
+  }
+  
+  .sidebar{
+    width: 70px;
+    height: 100vh;
+    position: absolute;
+    right: 0;  /* means ke sidebar is in right postion, if we increase the number it will move from right*/
+    top: 0;
+    border-radius: 40px 0 0 40px;
+    background: linear-gradient(#00545d,#000729);
+    border-left: 4px solid white;
+    /* border-style: solid;
+    border-color: #fff #fff ;
+    background-color: transparent; */
+  }
+  
+  .menu{
+    display: block; /*starts on a new line and takes up the available screen width.*/
+    width: 30px;
+    margin: 30px auto 0 ;
+  }
+  
+  .social img, .useful img {
+    width: 28px;
+    margin: 10px ;
+    cursor: pointer;
+    text-align: center;
+  }
+  
+  .social{
+    width: 45px;
+    position: absolute; /* we have to give 'absolute' otherside moving images won't work */
+    text-align: center;
+    top: 40%;
+    /* transform: translateY(-50%); */
+  }
+  
+  .useful{
+    width: 45px;
+    position: absolute; /* we have to give 'absolute' otherside moving images won't work */
+    text-align: center; /* dunno why we use text-align instead of align-items */
+    bottom: 28px;
+  }
+  
+  .bubbles img{
+    width: 50px;
+    animation: bubble 7s linear infinite;
+  }
+  
+  .bubbles{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around; /* this makes sense, will create space in start and end of the border*/
+    position: absolute;
+    bottom: -70px;
+  }
+  
+  @keyframes bubble{
+    0%{
+      transform: translateY(0);
+      opacity: 0;
+    }
+    30%{
+      opacity: 1;
+    }
+    60%{
+      opacity: 1;
+    }
+    100%{
+      transform: translateY(-100vh);
+      opacity: 0;
+    }
+  }
+  
+  .bubbles img:nth-child(1) {
+    animation-delay: 2s;
+    width: 30px;
+  }
+  .bubbles img:nth-child(2) {
+    animation-delay: 3s;
+    width: 50px;
+  }
+  .bubbles img:nth-child(3) {
+    animation-delay: 5s;
+    width: 61px;
+  }
+  .bubbles img:nth-child(4) {
+    animation-delay: 2.4s;
+    width: 54px;
+  }
+  .bubbles img:nth-child(5) {
+    animation-delay: 1.6s;
+    width: 42px;
+  }
+  .bubbles img:nth-child(6) {
+    animation-delay: 1.4s;
+    width: 71px;
+  }
+  .bubbles img:nth-child(7) {
+    animation-delay: 4.1s;
+    width: 40px;
+  }
+  
+  
+  
+  /* Here we making website responsive */
+  
+  @media screen and (max-width:600px) {  /* device max width will be from 0-600 px */
+    h1{
+      font-size: 40px;
+      line-height: 50px;
+    }
+  
+    .sidebar{
+      width: 100%;
+      height: 45px;
+      top: auto;
+      bottom: 0;
+      border-radius: 20px 20px 0 0;
+      /* background: linear-gradient(#00545d,#000729); */
+      border-top: 2px solid white;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      /* padding: 0 10px; */
+      box-sizing: border-box; /* child box --> it will help to stay inside the parent box which is side-bar(parent)*/
+    }
+  
+    .social{
+      width: auto;
+      position: unset; /* as far as i know, i may be wrong! the position will not set it to the parent position it's free now */
+      /* top: 50%; */
+      /* transform: none; */
+    }
+  
+    .useful{
+      width: auto;
+      position: unset;
+    }
+  
+    .menu{
+      width: 20px;
+      margin: 0; /* a CSS property that sets the top and bottom margins of an element to 0 and centers it horizontally within its parent element. This technique is often used to center a block-level element such as a div or a image.*/
+    }
+    .main-img{
+      /* background-image: linear-gradient(#000e2e, #004f5a); */
+      background-image: url(download.jpg);
+    }
+  }
